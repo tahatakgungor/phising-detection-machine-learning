@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>URL Phishing</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <style>
+        .center {
+            height: 90%;
+            position: relative;
+        }
+        
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        .center div  {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        h2, p, span, h5, th {
+            color: white;
+        }
+    </style>
+</head>
+
+<body style="background: linear-gradient(90deg, hsla(272, 78%, 16%, 1) 0%, hsla(17, 60%, 52%, 1) 100%);">
+    <div class="vh-100">
+        <div class="center">
+            <div>
+                <form name="form" , method="POST" , style="text-align: center;">
+                    <h2>Detecting Phishing Website with Machine Learning</h2>
+                    <br><br><br>
+                    <p>Recep Küçükekiz - 180101017<br>
+                        Süha Can Uluer - 180101024<br>
+                        Taha Turan Akgüngör - 180101032</p>
+                    <br><br><br>
+                    <span>URL:  </span>
+                    <input type="text" name="url" , placeholder="Enter URL" required />
+                    <br><br>
+                    <button class="btn btn-danger">Check</button>
+                </form>
+                <br>
+                <h5 style="text-align: center;">{{ output }}</h5>
+                <p style="text-align: center;">{{ url }}</p>
+                <br>
+                <table>
+                    <tr>
+                        <th>havingIP</th>
+                        <th>haveAtSign</th>
+                        <th>getLength</th>
+                        <th>getDepth</th>
+                        <th>redirection</th>
+                        <th>httpDomain</th>
+                        <th>tinyURL</th>
+                        <th>prefixSuffix</th>
+                        
+                      </tr>
+                      <tr>
+                        {% for item in results[:8] %}
+                            <th>{{item}}</th>
+                        {% endfor %}
+                      </tr>
+                </table>
+                <table>
+                    <tr>
+                        <th>dns</th>
+                        <th>web_traffic</th>
+                        <th>domainAge</th>
+                        <th>domainEnd</th>
+                        <th>iframe</th>
+                        <th>mouseOver</th>
+                        <th>rightClick</th>
+                        <th>forwarding</th>
+                    </tr>
+                    <tr>
+                        {% for item in results[8:] %}
+                            <th>{{item}}</th>
+                        {% endfor %}
+                      </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
